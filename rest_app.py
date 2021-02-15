@@ -3,8 +3,15 @@ from flask import Flask, request
 from db_connector import Stock
 from datetime import date
 from user import User
+import os
+import signal
 
 app = Flask(__name__)
+
+@app.route('/stop_server')
+def stop_server():
+    os.kill(os.getpid(), signal.CTRL_C_EVENT)
+    return 'Server stopped'
 
 @app.route('/users/<user_id>', methods=['GET','POST','PUT','DELETE'])
 def user(user_id):
