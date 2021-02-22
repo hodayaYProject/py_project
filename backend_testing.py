@@ -32,7 +32,7 @@ def rest_delete(user_id):
 
 
 
-# print(rest_post(2,'YOAV'))
-# print(rest_get(863))
-# print(rest_delete(15))
-# print(rest_put(863,'aaaaa'))
+print(rest_post(2,'YOAV'))
+print(rest_get(863))
+print(rest_delete(552))
+print(rest_put(863,'Hodaya'))
