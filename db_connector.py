@@ -27,6 +27,7 @@ def unconnect_DB(cursor,connection):
 
 class Stock:
 
+    #Get user_id and return user as object
     def get_user(user_id):
         connection = connect_DB()
         cursor = connection.cursor()
@@ -39,6 +40,7 @@ class Stock:
         print(user)
         return user if user else None
 
+    #Get user, when user_id exists generate new id
     def create_user(user):
         user = jsonpickle.decode(user)
         user.id = Stock.validate_uniq_id(user.id)
@@ -52,6 +54,7 @@ class Stock:
         unconnect_DB(cursor,connection)
         return user
 
+    #Get user when user_id exists update
     def update_user(user):
         user = jsonpickle.decode(user)
         connection = connect_DB()
@@ -64,6 +67,7 @@ class Stock:
         unconnect_DB(cursor, connection)
         return data
 
+    #Get user  when user_id exists delete
     def delete_user(user_id):
         connection = connect_DB()
         cursor = connection.cursor()
@@ -75,6 +79,7 @@ class Stock:
         unconnect_DB(cursor, connection)
         return data
 
+    #Get user_id checks to see if there is a random new creator
     def validate_uniq_id(id):
         while Stock.get_user(id):
             id = randint(1, 999)
