@@ -18,7 +18,7 @@ pipeline {
          stage('run fronted server') {
             steps {
                 bat 'start /min python web_app.py'
-                bat 'start /min python fronted_testing.py'
+                bat 'python fronted_testing.py'
                    }
         }
 //          stage('run combined_testing') {
