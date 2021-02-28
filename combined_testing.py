@@ -54,12 +54,12 @@ def get_user(user_id):
 
 
 try:
-    rest_post(2,'YOAV')
-    rest_get(2)
+    print(rest_post(2,'YOAV'))
+    print(rest_get(2))
     get_user(2)
     driver = webdriver.Chrome(executable_path="C:\\Users\\Hodaya\\Downloads\\chromedriver.exe")
-    driver.get("http://127.0.0.1:5001/user/get_user_data/1")
-    user = driver.find_element_by_id("user")
+    driver.get("http://127.0.0.1:5001/user/get_user_data/2")
+    user = driver.find_element_by_xpath('//*[@id="user"]')
     print(user.text)
 except Exception as e:
     raise Exception("test failed")
