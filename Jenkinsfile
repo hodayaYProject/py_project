@@ -6,7 +6,7 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('30 * * * *')])])
                 }
-                git branch: 'staging' , git 'https://github.com/hodayaYProject/py_project.git'
+                git branch: 'staging' , url 'https://github.com/hodayaYProject/py_project.git'
             }
         }
 //         stage('run backend server') {
