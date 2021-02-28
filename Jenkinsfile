@@ -9,12 +9,12 @@ pipeline {
                 git 'https://github.com/hodayaYProject/py_project.git'
             }
         }
-//         stage('run backend server') {
-//             steps {
-//                 bat 'start /min python rest_app.py'
-//                 bat 'python backend_testing.py'
-//                    }
-//         }
+        stage('run backend server') {
+            steps {
+                bat 'start /min python rest_app.py'
+                bat 'python backend_testing.py'
+                   }
+        }
          stage('run fronted server') {
             steps {
                 bat 'start /min python web_app.py'
