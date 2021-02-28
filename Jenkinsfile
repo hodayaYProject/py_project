@@ -19,11 +19,11 @@ pipeline {
          {
             when {
                 branch "staging"
-            }
-            steps {
+                steps {
                 bat 'start /min python web_app.py'
                 bat 'python fronted_testing.py'
                    }
+            }
         }
 //          stage('run combined_testing') {
 //               steps {
