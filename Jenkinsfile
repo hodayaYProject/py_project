@@ -6,7 +6,7 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('30 * * * *')])])
                 }
-                git branch: 'staging' , url 'https://github.com/hodayaYProject/py_project.git'
+                git 'https://github.com/hodayaYProject/py_project.git'
             }
         }
 //         stage('run backend server') {
@@ -15,7 +15,11 @@ pipeline {
 //                 bat 'python backend_testing.py'
 //                    }
 //         }
-         stage('run fronted server') {
+         stage('run fronted server')
+         {
+            when {
+                branch "staging"
+            }
             steps {
                 bat 'start /min python web_app.py'
                 bat 'python fronted_testing.py'
