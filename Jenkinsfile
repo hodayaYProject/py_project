@@ -16,13 +16,11 @@ pipeline {
 //                    }
 //         }
          stage('run fronted server') {
-         if( "${env.BRANCH_NAME}" == "staging" ) {
-        //Do something useful
             steps {
                 bat 'start /min python web_app.py'
                 bat 'python fronted_testing.py'
                    }
-        }}
+        }
 //          stage('run combined_testing') {
 //               steps {
 //                 bat 'python combined_testing.py'
