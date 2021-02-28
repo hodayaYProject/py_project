@@ -21,11 +21,11 @@ pipeline {
                 bat 'python fronted_testing.py'
                    }
         }
-//          stage('run combined_testing') {
-//               steps {
-//                 bat 'python combined_testing.py'
-//                    }
-//         }
+         stage('run combined_testing') {
+              steps {
+                bat 'python combined_testing.py'
+                   }
+        }
         stage('turn off servers') {
              steps {
                 bat 'python clean_environment.py'
