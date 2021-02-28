@@ -8,19 +8,14 @@ from random import randint
 
 
 def connect_DB():
-    # config = yaml.safe_load(open("config.yml"))
+    config = yaml.safe_load(open("config.yml"))
     connection = None
     try:
-        connection = pymysql.connect(host='remotemysql.com',
+        connection = pymysql.connect(host=config['mysql']['host'],
                                      port=3306,
-                                     user='cykVOMgYo5',
-                                     passwd='T0wTM9cqXf',
-                                     db='cykVOMgYo5')
-        # connection = pymysql.connect(host=config['mysql']['host'],
-        #                              port=3306,
-        #                              user=config['mysql']['user'],
-        #                              passwd=config['mysql']['pass'],
-        #                              db=config['mysql']['name'])
+                                     user=config['mysql']['user'],
+                                     passwd=config['mysql']['pass'],
+                                     db=config['mysql']['name'])
     except Error as e:
         print(f"The error '{e}' occurred")
     return connection
